@@ -72,19 +72,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td data-label="No.">1</td>
-                        <td data-label="Kode Barang">BRG00001</td>
-                        <td data-label="Nama Barang">Aqua</td>
-                        <td data-label="Kategori Barang">Minuman</td>
-                        <td data-label="Harga Barang">4000</td>
-                        <td data-label="Jumlah">50</td>
-                    </tr>
-
+                    @php($no = 1)
+                    @foreach ($barang as $item)
+                        <tr>
+                            <td data-label="No.">{{ $no++ }}</td>
+                            <td data-label="Kode Barang">{{ $item->kode_barang }}</td>
+                            <td data-label="Nama Barang">{{ $item->nama_barang }}</td>
+                            <td data-label="Kategori Barang">{{ $item->kategori_barang }}</td>
+                            <td data-label="Harga Barang">{{ number_format($item->harga) }}</td>
+                            <td data-label="Jumlah">{{ $item->jumlah }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
-
-
         </section>
         <!-- end content -->
         <!-- footer -->
