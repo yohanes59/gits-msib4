@@ -25,13 +25,13 @@
     <main>
         <!-- aside -->
         <aside class="sidebar">
-            <a href="index.html" class="brand-link">
+            <a href="{{ route('barang') }}" class="brand-link">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo" class="brand-logo">
                 <h1 class="brand-title sidebar-text">SI-Gudang</h1>
             </a>
             <hr class="line">
             <div class="menu">
-                <a href="#" class="menu-item">
+                <a href="{{ route('barang') }}" class="menu-item">
                     <i class="fa-solid fa-rectangle-list"></i>
                     <p class="sidebar-text">Data Barang</p>
                 </a>
@@ -89,7 +89,7 @@
         <!-- end content -->
         <!-- footer -->
         <footer class="footer">
-            <p>© 2023 <a href="https://yohanescahyadi.000webhostapp.com/">By Yohanes Cahyadi</a></p>
+            <p>© 2023 <a href="https://yohanescahyadi.000webhostapp.com/" target="_blank">By Yohanes Cahyadi</a></p>
         </footer>
         <!-- end footer -->
     </main>
