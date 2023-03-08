@@ -64,6 +64,7 @@
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>Kode</th>
                         <th>Nama</th>
                         <th>Kategori</th>
                         <th>Harga</th>
@@ -72,10 +73,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="No">1</td>
+                        <td data-label="No.">1</td>
+                        <td data-label="Kode Barang">BRG00001</td>
                         <td data-label="Nama Barang">Aqua</td>
-                        <td data-label="Kategori">Minuman</td>
-                        <td data-label="Harga">4000</td>
+                        <td data-label="Kategori Barang">Minuman</td>
+                        <td data-label="Harga Barang">4000</td>
                         <td data-label="Jumlah">50</td>
                     </tr>
 
