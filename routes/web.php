@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\BarangController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::controller(BarangController::class)->prefix('/')->group(function() {
-    Route::get('', 'index')->name('barang');
-});
+Route::get('/', [BarangController::class, 'index'])->name('barang');
