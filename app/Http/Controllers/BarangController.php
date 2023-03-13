@@ -9,6 +9,6 @@ class BarangController extends Controller
     public function index()
     {
         $barang = Barang::get();
-        return view('app', ['barang' => $barang]);
+        return view('barang.index', ['barang' => $barang]);
     }
 }
