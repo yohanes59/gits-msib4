@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->unsignedInteger('harga')->default(0);
             $table->timestamps();
-            $table->foreignId('kategori_id');
-            $table->foreign('kategori_id')->references('id')->on('categories');
+            $table->foreignId('kategori_id')->nullable();
+            $table->foreign('kategori_id')->references('id')->on('categories')->nullOnDelete();
         });
     }
 

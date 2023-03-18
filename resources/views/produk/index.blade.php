@@ -22,7 +22,13 @@
             @foreach ($produk as $item)
                 <tr>
                     <td data-label="No.">{{ $no++ }}</td>
-                    <td data-label="Kategori">{{ $item->category->nama_kategori }}</td>
+                    <td data-label="Kategori">
+                        @if ($item->category)
+                            {{ $item->category->nama_kategori }}
+                        @else
+                            Belum ada kategori
+                        @endif
+                    </td>
                     <td data-label="Nama Produk">{{ $item->nama_produk }}</td>
                     <td data-label="Deskripsi">{{ $item->deskripsi }}</td>
                     <td data-label="Harga">{{ number_format($item->harga) }}</td>
