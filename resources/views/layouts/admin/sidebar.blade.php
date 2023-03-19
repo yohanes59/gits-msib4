@@ -1,7 +1,7 @@
 <aside class="sidebar">
     <a href="" class="brand-link">
-        <img src="{{ asset('img/logo.png') }}" alt="Logo" class="brand-logo">
-        <h1 class="brand-title sidebar-text">Tugas CRUD</h1>
+        <img src="{{ asset('admin/img/logo.png') }}" alt="Logo" class="brand-logo">
+        <h1 class="brand-title sidebar-text">Admin Dashboard</h1>
     </a>
     <hr class="line">
     <div class="menu">

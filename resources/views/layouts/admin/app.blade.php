@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 4 - MVC</title>
+    <title>Tugas CRUD | @yield('title')</title>
 
     <!-- font roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- style -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
         <!-- end footer -->
     </main>
 
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('admin/js/main.js') }}"></script>
 </body>
 
 </html>

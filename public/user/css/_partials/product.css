@@ -1,0 +1,115 @@
+/* Start Product */
+.products {
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+.products .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.products .container .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.products .container .title span {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: -28px;
+}
+.products .container .title h3 {
+  font-size: 30px;
+  position: relative;
+}
+.products .container .title h3::before {
+  position: absolute;
+  content: "";
+  background-color: var(--main);
+  width: 121px;
+  height: 2px;
+  bottom: 0;
+  right: 0;
+}
+.products .container .product-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.products .container .product-boxes .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 20px;
+  background-color: var(--gray);
+}
+.products .container .product-boxes .box .image {
+  position: relative;
+}
+
+.products .container .product-boxes .box .image img {
+  height: 250px;
+  width: 263px;
+}
+.products .container .product-boxes .box .image:hover .image-icons{
+  opacity: 1;
+  transform: translateY(-8%);
+}
+.products .container .product-boxes .box .image .image-icons {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  bottom: 0px;
+  width: 100%;
+  font-size: 16px;
+  background: rgba(255,255,255,0.5);
+  height: 30%;
+  transition: all .48s ease;
+  transform: translateY(10%);
+  opacity: 0;
+}
+.products .container .product-boxes .box .image .image-icons i {
+  background: #8894ff;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+.products .container .product-boxes .box .image .image-icons i:hover {
+  background: var(--main);
+}
+.products .container .product-boxes .box .text {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+.products .container .product-boxes .box .text span {
+  margin-bottom: -20px;
+}
+.products .container .product-boxes .box .text h4 {
+  font-size: 20px;
+  letter-spacing: -1.2px;
+  transition: .3s;
+  cursor: pointer;
+}
+.products .container .product-boxes .box .text h4:hover {
+  color: var(--main);
+}
+.products .container .product-boxes .box .text .product-price {
+  margin-top: -15px;
+}
+/* End Product */

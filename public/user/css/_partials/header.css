@@ -1,0 +1,82 @@
+/* Start Header */
+.header {
+  background-color: white;
+  box-shadow: 0px 10px 27px 3px rgb(221 221 221 / 30%);
+  z-index: 10;
+  width: 100%;
+  position: fixed;
+  transition: .3s;
+  top: 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 25px 0;
+  max-width: 100%;
+}
+
+.header .container .logo-name {
+  font-size: 32px;
+  padding-left: 12px;
+}
+
+.header .container ul {
+  display: flex;
+  gap: 50px;
+}
+
+.header .container ul li a {
+  color: var(--dark);
+  transition: .3s;
+  font-weight: 450;
+}
+
+.header .container ul li a:hover {
+  color: var(--main);
+}
+
+.header .container .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+}
+
+.header .container .icons .cart {
+  cursor: pointer;
+  position: relative;
+}
+
+.header .container .icons .cart .cart-icon {
+  color: var(--dark);
+}
+
+.header .container .icons .cart span {
+  position: absolute;
+  background-color: var(--main);
+  color: white;
+  border-radius: 50%;
+  padding: 0px 6px;
+  font-size: 12px;
+  left: 11px;
+  bottom: 12px;
+}
+
+@media (max-width: 991px) {
+  .header .container {
+    padding: 25px 15px;
+  }
+
+  .header .container .icons {
+    display: none;
+  }
+
+  .header .container ul {
+    display: none;
+  }
+}
+
+/* End Header */

@@ -19,6 +19,7 @@
 	color: var(--color-light);
 	text-decoration: none;
 	padding: 1.2rem;
+	margin-left: 0.5rem;
 }
 
 .brand-logo {

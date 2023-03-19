@@ -1,0 +1,50 @@
+/* Start MOB */
+.header .container .mobile {
+  display: none;
+}
+
+.header .container .mobile .mob-icons {
+  font-size: 30px;
+  cursor: pointer;
+  transition: .3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 90%;
+}
+
+.header .container .mobile .mob-icons .mob-icons:hover {
+  color: var(--main);
+}
+
+.header .container .mobile .mob-icons .xmark {
+  display: none;
+}
+
+.header .container .mobile .mob-list ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  left: 0px;
+  top: 60px;
+  width: 100%;
+  box-shadow: rgb(0 0 0 / 15%) 0px 20px 35px -31px;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
+  transition: .3s;
+}
+
+@media (max-width: 991px) {
+  .header .container .mobile {
+    display: block;
+  }
+
+  .header .container .mobile .mob-list ul {
+    left: -200%;
+    transition: .3s;
+  }
+}
+
+/* End MOB */

@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,9 @@ Route::controller(ProductController::class)->prefix('/produk')->group(function (
     Route::get('edit/{id}', 'edit')->name('produk.edit');
     Route::post('edit/{id}', 'update')->name('produk.edit.update');
     Route::get('hapus/{id}', 'destroy')->name('produk.hapus');
+});
+
+Route::controller(CartController::class)->prefix('/')->group(function () {
+    // parameter -> route, method, asname
+    Route::get('', 'index')->name('cart');
 });

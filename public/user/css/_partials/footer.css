@@ -1,0 +1,16 @@
+footer {
+    background: #002347;
+}
+
+footer .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+footer .content .copy-right {
+    padding: 10px 0;
+    color: white;
+}

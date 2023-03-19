@@ -1,3 +1,4 @@
 <footer class="footer">
-    <p>© 2023 <a href="https://yohanescahyadi.000webhostapp.com/" target="_blank">By Yohanes Cahyadi</a></p>
+    <p>Copyright © 2023 | Made with <i class="fa-solid fa-heart"></i> by <a
+            href="https://yohanescahyadi.000webhostapp.com/" target="_blank"> Yohanes Cahyadi</a></p>
 </footer>

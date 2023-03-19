@@ -23,11 +23,7 @@
                 <tr>
                     <td data-label="No.">{{ $no++ }}</td>
                     <td data-label="Kategori">
-                        @if ($item->category)
-                            {{ $item->category->nama_kategori }}
-                        @else
-                            Belum ada kategori
-                        @endif
+                        {{ $item->category ? $item->category->nama_kategori : 'Uncategorized' }}
                     </td>
                     <td data-label="Nama Produk">{{ $item->nama_produk }}</td>
                     <td data-label="Deskripsi">{{ $item->deskripsi }}</td>

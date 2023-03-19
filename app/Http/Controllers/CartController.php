@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::get();
-        return view('pages.kategori.index', ['kategori' => $category]);
+        return view('pages.cart.index');
     }
 
     /**
@@ -25,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('pages.kategori.form');
+        //
     }
 
     /**
@@ -36,11 +34,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create([
-            'nama_kategori' => $request->kategori,
-        ]);
-
-        return redirect()->route('kategori');
+        //
     }
 
     /**
@@ -62,9 +56,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-
-        return view('pages.kategori.form', ['kategori' => $category]);
+        //
     }
 
     /**
@@ -76,9 +68,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Category::find($id)->update(['nama_kategori' => $request->kategori]);
-
-        return redirect()->route('kategori');
+        //
     }
 
     /**
@@ -89,8 +79,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
-
-        return redirect()->route('kategori');
+        //
     }
 }
