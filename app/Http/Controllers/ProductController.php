@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::with('category')->get();
-        return view('pages.produk.index', ['produk' => $product]);
+        return view('pages.admin.produk.index', ['produk' => $product]);
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         $category = Category::get();
 
-        return view('pages.produk.form', ['kategori' => $category]);
+        return view('pages.admin.produk.form', ['kategori' => $category]);
     }
 
     /**
@@ -73,7 +73,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $category = Category::get();
 
-        return view('pages.produk.form', ['produk' => $product, 'kategori' => $category]);
+        return view('pages.admin.produk.form', ['produk' => $product, 'kategori' => $category]);
     }
 
     /**

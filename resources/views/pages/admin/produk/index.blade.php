@@ -27,7 +27,7 @@
                     </td>
                     <td data-label="Nama Produk">{{ $item->nama_produk }}</td>
                     <td data-label="Deskripsi">{{ $item->deskripsi }}</td>
-                    <td data-label="Harga">{{ number_format($item->harga) }}</td>
+                    <td data-label="Harga">{{ number_format($item->harga, 0, ',', '.') }}</td>
                     <td data-label="Aksi">
                         <a href="{{ route('produk.edit', $item->id) }}">
                             <button class="btn">

@@ -2,7 +2,8 @@ let barsIcon = document.querySelector(".mobile .bars");
 let xmarkIcon = document.querySelector(".mobile .xmark");
 let mobNavList = document.querySelector(".mobile .mob-list ul");
 
-// bar
+// Start Burger Menu
+// open burger-menu
 barsIcon.addEventListener("click", showMobList);
 function showMobList() {
   mobNavList.style.left = "0px";
@@ -11,7 +12,7 @@ function showMobList() {
   barsIcon.style.display = "none";
 };
 
-// close
+// close burger-menu
 xmarkIcon.addEventListener("click", closeMobList);
 function closeMobList() {
   mobNavList.style.left = "-200%";
@@ -19,6 +20,8 @@ function closeMobList() {
   xmarkIcon.style.display = "none";
   barsIcon.style.display = "flex";
 };
+// End Burger Menu
+
 
 // Start Shopping Cart
 let cartIcon = document.querySelectorAll(".cart");
@@ -29,18 +32,21 @@ cartIcon.forEach((e) => {
   e.addEventListener("click", showCart);
 })
 
+// Menampilkan Pop Up Keranjang Belanja
 function showCart() {
   shoppingCart.style.opacity = `1`;
   shoppingCart.style.visibility = `visible`;
   shoppingCart.style.transition = `.3s`;
 };
 
+// Menutup Pop Up Keranjang Belanja
 xmark.addEventListener("click", closeCart);
 function closeCart() {
   shoppingCart.style.opacity = `0`;
   shoppingCart.style.visibility = `hidden`;
   shoppingCart.style.transition = `.5s`;
 };
+
 
 // trash
 let trashIcon = document.querySelectorAll(".shopping-cart .trash-icon");

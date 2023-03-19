@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::get();
-        return view('pages.kategori.index', ['kategori' => $category]);
+        return view('pages.admin.kategori.index', ['kategori' => $category]);
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('pages.kategori.form');
+        return view('pages.admin.kategori.form');
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
 
-        return view('pages.kategori.form', ['kategori' => $category]);
+        return view('pages.admin.kategori.form', ['kategori' => $category]);
     }
 
     /**
