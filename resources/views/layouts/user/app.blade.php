@@ -20,7 +20,16 @@
 
     <main>
         <!-- Start Header -->
-        @include('layouts.user.header')
+        <div class="header">
+            <!-- Start Shopping Cart -->
+            {{-- pakai include karena apabila pakai @yield javascript tidak berfungsi --}}
+            @include('pages.user.cart.cart')
+            <!-- End Shopping Cart -->
+            <!-- Start Navbar -->
+            @include('layouts.user.navbar')
+            <!-- End Navbar -->
+        </div>
+
         <!-- End Header -->
 
         <!-- Start Content -->

@@ -11,7 +11,7 @@
                 @foreach ($produk as $item)
                     <div class="box">
                         <div class="image">
-                            <img src="{{ asset('user/images/no-image.jpg') }}" alt="">
+                            <img src="{{ asset('user/images/no-image.jpg') }}" alt="product-image">
                             <div class="image-icons">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 <i class="fa-solid fa-cart-plus add-cart-icon"></i>
