@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'kategori_id');
     }
+
+    public function cart()
+    {
+        return $this->belongsToMany(Cart::class, 'product_id');
+    }
 }
