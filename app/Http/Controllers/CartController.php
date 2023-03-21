@@ -41,7 +41,21 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // produk sudah ada dikeranjang?
+        $checkAvailable = Cart::where('product_id', $request->product_id)->first();
+        // jika sudah update jumlah = jumlah lama + jumlah baru
+        if ($checkAvailable) {
+            // jika sudah update jumlah = jumlah lama + jumlah baru
+            $addAgain = Cart::where('product_id', $checkAvailable->product_id)->update(['quantity' => $checkAvailable->quantity + $request->quantity]);
+        } else {
+            // jika belum tambahkan produk ke keranjang
+            $data = [
+                'product_id' => $request->product_id,
+                'quantity' => $request->quantity,
+            ];
+            Cart::create($data);
+        }
+        return redirect()->route('home');
     }
 
     /**
@@ -63,7 +77,9 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        //
+        // jika tombol tambah di tekan jumlah di tambah 1
+
+        // jika tombol kurang di tekan jumlah di kurang 1
     }
 
     /**

@@ -14,7 +14,15 @@
                             <img src="{{ asset('user/images/no-image.jpg') }}" alt="product-image">
                             <div class="image-icons">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <i class="fa-solid fa-cart-plus add-cart-icon"></i>
+                                <form action="{{ route('cart.tambah.simpan') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" style="border: none;">
+                                        <i class="fa-solid fa-cart-plus add-cart-icon"></i>
+                                        <input type="hidden" name="product_id" value="{{ $item->id }}">
+                                        <input type="hidden" name="quantity" value="1">
+                                    </button>
+                                    {{-- <input type="submit" value="Simpan" style="display:none;"> --}}
+                                </form>
                             </div>
                         </div>
                         <div class="text">

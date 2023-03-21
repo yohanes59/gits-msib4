@@ -15,7 +15,6 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::get();
-        dd($category);
         return view('pages.admin.kategori.index', ['kategori' => $category]);
     }
 

@@ -39,5 +39,6 @@ Route::controller(ProductController::class)->prefix('/produk')->group(function (
 Route::controller(CartController::class)->prefix('/')->group(function () {
     // parameter -> route, method, asname
     Route::get('', 'index')->name('home');
+    Route::post('', 'store')->name('cart.tambah.simpan');
     Route::get('hapus/{id}', 'destroy')->name('cart.hapus');
 });
