@@ -38,5 +38,6 @@ Route::controller(ProductController::class)->prefix('/produk')->group(function (
 
 Route::controller(CartController::class)->prefix('/')->group(function () {
     // parameter -> route, method, asname
-    Route::get('', 'index')->name('cart');
+    Route::get('', 'index')->name('home');
+    Route::get('hapus/{id}', 'destroy')->name('cart.hapus');
 });
