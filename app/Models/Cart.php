@@ -16,6 +16,6 @@ class Cart extends Model
 
     public function product()
     {
-        return $this->hasOne(Product::class, 'produk_id');
+        return $this->belongsTo(Product::class, 'produk_id');
     }
 }
