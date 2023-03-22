@@ -1,8 +1,8 @@
+// Start Burger Menu
 let barsIcon = document.querySelector(".mobile .bars");
 let xmarkIcon = document.querySelector(".mobile .xmark");
 let mobNavList = document.querySelector(".mobile .mob-list ul");
 
-// Start Burger Menu
 // open burger-menu
 barsIcon.addEventListener("click", showMobList);
 function showMobList() {
@@ -31,14 +31,12 @@ let xmark = document.querySelector(".shopping-cart .xmark");
 cartIcon.forEach((e) => {
   e.addEventListener("click", showCart);
 })
-
 // Menampilkan Pop Up Keranjang Belanja
 function showCart() {
   shoppingCart.style.opacity = `1`;
   shoppingCart.style.visibility = `visible`;
   shoppingCart.style.transition = `.3s`;
 };
-
 // Menutup Pop Up Keranjang Belanja
 xmark.addEventListener("click", closeCart);
 function closeCart() {
@@ -46,94 +44,22 @@ function closeCart() {
   shoppingCart.style.visibility = `hidden`;
   shoppingCart.style.transition = `.5s`;
 };
+// End Shopping Cart
 
 
-// trash
-let trashIcon = document.querySelectorAll(".shopping-cart .trash-icon");
-for (let i = 0; i < trashIcon.length; i++ ) {
-  let button = trashIcon[i];
-  button.addEventListener("click", removeFromCart);
-};
-
-function removeFromCart(event) {
-  let button = event.target;
-  button.parentElement.parentElement.remove();
-  updateCartTotal();
-  let newBoxes = document.querySelectorAll(".cart-box");
-  cartCounter.innerText = newBoxes.length;
-};
-
-let quantityInputs = document.querySelectorAll(".cart-box .quantity");
-for (let i = 0; i < quantityInputs.length; i++) {
-  let input = quantityInputs[i];
-  input.addEventListener("change", updateCartTotal);
-};
-
-function updateCartTotal() {
-  let cartBoxes = document.querySelectorAll(".cart-box");
-  let total = 0;
-  for (let i = 0; i < cartBoxes.length; i++) {
-    let cartBox = cartBoxes[i];
-    let quantityElement = cartBox.querySelector(".cart-box .quantity");
-    let priceElement = cartBox.querySelector(".cart-price");
-    let price = parseFloat(priceElement.innerText.replace("$", ""));
-    let quantity = quantityElement.value;
-    total = total + (price * quantity);
-  }
-  document.querySelector(".shopping-cart .total-cart-price").innerText = "$" + total;
-};
-
-let productBoxes = document.querySelectorAll(".products .product-boxes .box");
-
-let addBtns = document.querySelectorAll(".add-cart-icon");
-
-for (let i = 0; i < addBtns.length; i++) {
-  let addBtn = addBtns[i];
-  addBtn.addEventListener("click", addNewCartBox);
-};
-
-let cartCounter = document.querySelector(".header .cart span");
-console.log(cartCounter);
-function addNewCartBox(event) {
-  let addBtn = event.target;
-  let productBox = addBtn.parentElement.parentElement.parentElement;
-  console.log(productBox);
-  let imageSrc = productBox.querySelector("img").src;
-  let title = productBox.querySelector(".text h4").innerText;
-  let price = productBox.querySelector(".text .product-price").innerText;
-  addProductsToCart(imageSrc, title, price);
-  updateCartTotal();
-  showCart();
-};
-
-function addProductsToCart(imageSrc, title, price) {
-  let productTitles = document.querySelectorAll(".cart-name");
-  for (let i = 0; i < productTitles.length; i++) {
-    if (productTitles[i].innerText === title) {
-      let quantityInputs = document.querySelectorAll(".cart-box .quantity");
-      quantityInputs[i].value++;
-      return
-    }
-  }
-  
-  let newBox = document.createElement("div");
-  newBox.classList.add("cart-box");
-  let shoppingCartCont = document.querySelector(".shopping-cart .cart-boxes");
-  shoppingCartCont.prepend(newBox);
-  let newBoxContent = `
-  <img src="${imageSrc}" alt="">
-  <div class="text">
-    <div class="cart-name">${title}</div>
-    <div class="cart-price">${price}</div>
-  </div>
-  <div class="row">
-    <input type="number" min="1" value="1" class="quantity">
-    <i class="fa-solid fa-trash trash-icon"></i>
-  </div>
-  `
-  newBox.innerHTML = newBoxContent;
-  newBox.querySelector(".cart-box .trash-icon").addEventListener("click", removeFromCart);
-  newBox.querySelector(".cart-box .quantity").addEventListener("change", updateCartTotal);
-  let newBoxes = document.querySelectorAll(".cart-box");
-  cartCounter.innerText = newBoxes.length;
+// Start Total Harga
+// Menampilkan Total Harga
+const quantities = document.getElementsByClassName('quantity');
+const prices = document.getElementsByClassName('cart-price');
+// Hitung total harga
+let totalPrice = 0;
+for (let i = 0; i < quantities.length; i++) {
+  const quantity = parseInt(quantities[i].value);
+  const price = parseInt(prices[i].textContent.replace(/\D/g, ''));
+  totalPrice += quantity * price;
 }
+// Tampilkan total harga pada elemen total-cart-price
+const totalCartPrice = document.querySelector('.total-cart-price');
+totalCartPrice.textContent = totalPrice.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+// End Total Harga
+
