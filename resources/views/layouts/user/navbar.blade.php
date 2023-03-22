@@ -17,7 +17,7 @@
     <div class="icons">
         <div class="cart">
             <i class="fa-solid fa-cart-shopping cart-icon"></i>
-            <span>0</span>
+            <span class="amount">0</span>
         </div>
     </div>
 </div>

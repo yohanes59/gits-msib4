@@ -63,3 +63,15 @@ const totalCartPrice = document.querySelector('.total-cart-price');
 totalCartPrice.textContent = totalPrice.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
 // End Total Harga
 
+
+// Start Banyak Jenis Item diKeranjang
+// Mengambil elemen cart-boxes dan amount
+const cartBoxes = document.querySelector('.cart-boxes');
+const amount = document.querySelector('.amount');
+
+// Mengambil jumlah total produk dalam keranjang
+const totalProducts = cartBoxes.children.length;
+
+// Menampilkan jumlah total produk dalam keranjang ke elemen amount
+amount.innerHTML = totalProducts;
+// Ends Banyak Jenis Item diKeranjang
