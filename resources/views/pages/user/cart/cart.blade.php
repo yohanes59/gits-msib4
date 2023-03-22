@@ -14,7 +14,9 @@
                         <div class="cart-price">{{ number_format($row->product->harga, 0, ',', '.') }}</div>
                     </div>
                     <div class="row">
+                        <button class="quantity-btn minus"><i class="fa-solid fa-minus"></i></button>
                         <input value="{{ $row->quantity }}" class="quantity" readonly>
+                        <button class="quantity-btn plus"><i class="fa-solid fa-plus"></i></button>
                         <a href="{{ route('cart.hapus', $row->id) }}"
                             onclick="return confirm('Yakin Ingin Menghapus Data Ini?')">
                             <i class="fa-solid fa-trash trash-icon"></i>
