@@ -77,9 +77,7 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        // jika tombol tambah di tekan jumlah di tambah 1
 
-        // jika tombol kurang di tekan jumlah di kurang 1
     }
 
     /**
@@ -89,9 +87,16 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $item = Cart::findOrFail($id);
+        $item->quantity = request('quantity');
+        $item->save();
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Quantity updated successfully'
+        ]);
     }
 
     /**

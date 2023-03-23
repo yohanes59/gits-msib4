@@ -40,5 +40,6 @@ Route::controller(CartController::class)->prefix('/')->group(function () {
     // parameter -> route, method, asname
     Route::get('', 'index')->name('home');
     Route::post('', 'store')->name('cart.tambah.simpan');
+    Route::put('update/{id}', 'update')->name('cart.update');
     Route::get('hapus/{id}', 'destroy')->name('cart.hapus');
 });
