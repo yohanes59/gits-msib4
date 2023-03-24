@@ -41,6 +41,11 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'product_id' => ['required','numeric', 'min:1'],
+            'quantity' => ['required', 'numeric', 'min:1', 'max:1'],
+        ]);
+
         // produk sudah ada dikeranjang?
         $checkAvailable = Cart::where('product_id', $request->product_id)->first();
         // jika sudah update jumlah = jumlah lama + jumlah baru
@@ -92,7 +97,7 @@ class CartController extends Controller
         $item = Cart::findOrFail($id);
         $item->quantity = request('quantity');
         $item->save();
-    
+
         return response()->json([
             'success' => true,
             'message' => 'Quantity updated successfully'

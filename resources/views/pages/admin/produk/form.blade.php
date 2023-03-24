@@ -3,6 +3,15 @@
 @section('title', 'Form Data Produk')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <form action="{{ isset($produk) ? route('produk.edit.update', $produk->id) : route('produk.tambah.simpan') }}"
             method="POST">
@@ -14,7 +23,7 @@
                     <label for="kategori">Kategori</label>
                 </div>
                 <div class="col-75">
-                    <select id="kategori" name="kategori">
+                    <select id="kategori" name="kategori" class="@error('kategori') @enderror">
                         <option value="" selected disabled hidden>-- Pilih Kategori --</option>
                         @foreach ($kategori as $row)
                             <option value="{{ $row->id }}"
@@ -31,7 +40,7 @@
                 </div>
                 <div class="col-75">
                     <input type="text" id="nama" name="nama" placeholder="Nama Produk.."
-                        value="{{ isset($produk) ? $produk->nama_produk : '' }}">
+                        value="{{ isset($produk) ? $produk->nama_produk : '' }}" class="@error('nama') @enderror">
                 </div>
             </div>
             <div class="row">
@@ -40,7 +49,7 @@
                 </div>
                 <div class="col-75">
                     <input type="number" id="harga" name="harga" placeholder="Harga Produk.."
-                        value="{{ isset($produk) ? $produk->harga : '' }}">
+                        value="{{ isset($produk) ? $produk->harga : '' }}" class="@error('harga') @enderror">
                 </div>
             </div>
             <div class="row">
@@ -48,7 +57,7 @@
                     <label for="deskripsi">Deskripsi</label>
                 </div>
                 <div class="col-75">
-                    <textarea id="deskripsi" name="deskripsi" style="height:70px">
+                    <textarea id="deskripsi" name="deskripsi" style="height:70px" class="@error('deskripsi') @enderror">
                         {{ isset($produk) ? $produk->deskripsi : '' }}
                     </textarea>
                 </div>

@@ -1,6 +1,15 @@
 @extends('layouts.user.app')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="products">
         <div class="container">
             <div class="title">
@@ -18,10 +27,9 @@
                                     @csrf
                                     <button type="submit" style="border: none;">
                                         <i class="fa-solid fa-cart-plus add-cart-icon"></i>
-                                        <input type="hidden" name="product_id" value="{{ $item->id }}">
-                                        <input type="hidden" name="quantity" value="1">
+                                        <input type="hidden" name="product_id" value="{{ $item->id }}" class="@error('product_id') @enderror">
+                                        <input type="hidden" name="quantity" value="1" class="@error('quantity') @enderror">
                                     </button>
-                                    {{-- <input type="submit" value="Simpan" style="display:none;"> --}}
                                 </form>
                             </div>
                         </div>

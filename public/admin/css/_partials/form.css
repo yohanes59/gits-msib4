@@ -72,3 +72,15 @@ input[type=submit] {
   }
 }
 
+.alert {
+  padding: 15px;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}

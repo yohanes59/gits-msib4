@@ -15,7 +15,6 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::get();
-        dd($category);
         return view('pages.admin.kategori.index', ['kategori' => $category]);
     }
 
@@ -37,6 +36,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'kategori' => ['required', 'string', 'max:20'],
+        ]);
+
         Category::create([
             'nama_kategori' => $request->kategori,
         ]);
@@ -77,7 +80,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Category::find($id)->update(['nama_kategori' => $request->kategori]);
+        $request->validate([
+            'kategori' => ['required', 'string', 'max:20'],
+        ]);
+        
+        Category::find($id)->update([
+            'nama_kategori' => $request->kategori
+        ]);
 
         return redirect()->route('kategori');
     }

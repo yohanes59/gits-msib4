@@ -16,7 +16,6 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::with('category')->get();
-        dd($product);
         return view('pages.admin.produk.index', ['produk' => $product]);
     }
 
@@ -40,6 +39,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => ['required','string', 'max:50'],
+            'deskripsi' => ['required','string', 'max:100'],
+            'harga' => ['required', 'numeric', 'min:4'],
+            'kategori' => ['required','numeric', 'min:1'],
+        ]);
+
         $data = [
             'nama_produk' => $request->nama,
             'deskripsi' => $request->deskripsi,
@@ -86,6 +92,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nama' => ['required','string', 'max:50'],
+            'deskripsi' => ['required','string', 'max:100'],
+            'harga' => ['required', 'numeric', 'min:1000'],
+            'kategori' => ['required','numeric', 'min:1'],
+        ]);
+        
         $data = [
             'nama_produk' => $request->nama,
             'deskripsi' => $request->deskripsi,

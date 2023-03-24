@@ -77,7 +77,7 @@ totalCartPrice.textContent = totalPrice.toLocaleString('id-ID', { style: 'curren
 // End Total Harga
 
 
-//
+// 
 document.addEventListener("DOMContentLoaded", () => {
   const quantityBtns = document.querySelectorAll('.quantity-btn');
 
