@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -37,15 +37,8 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $request->validate([
-            'nama' => ['required','string', 'max:50'],
-            'deskripsi' => ['required','string', 'max:100'],
-            'harga' => ['required', 'numeric', 'min:4'],
-            'kategori' => ['required','numeric', 'min:1'],
-        ]);
-
         $data = [
             'nama_produk' => $request->nama,
             'deskripsi' => $request->deskripsi,
@@ -77,7 +70,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
+        // $product = Product::with('category')->find($id);
+        $product = Product::findOrFail($id);
         $category = Category::get();
 
         return view('pages.admin.produk.form', ['produk' => $product, 'kategori' => $category]);
@@ -90,15 +84,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        $request->validate([
-            'nama' => ['required','string', 'max:50'],
-            'deskripsi' => ['required','string', 'max:100'],
-            'harga' => ['required', 'numeric', 'min:1000'],
-            'kategori' => ['required','numeric', 'min:1'],
-        ]);
-        
         $data = [
             'nama_produk' => $request->nama,
             'deskripsi' => $request->deskripsi,
@@ -106,7 +93,7 @@ class ProductController extends Controller
             'kategori_id' => $request->kategori,
         ];
 
-        Product::find($id)->update($data);
+        Product::findOrFail($id)->update($data);
 
         return redirect()->route('produk');
     }
@@ -119,7 +106,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        Product::findOrFail($id)->delete();
 
         return redirect()->route('produk');
     }

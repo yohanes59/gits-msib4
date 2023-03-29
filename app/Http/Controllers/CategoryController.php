@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -34,12 +34,8 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $request->validate([
-            'kategori' => ['required', 'string', 'max:20'],
-        ]);
-
         Category::create([
             'nama_kategori' => $request->kategori,
         ]);
@@ -66,7 +62,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
 
         return view('pages.admin.kategori.form', ['kategori' => $category]);
     }
@@ -78,13 +74,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
-        $request->validate([
-            'kategori' => ['required', 'string', 'max:20'],
-        ]);
-        
-        Category::find($id)->update([
+        Category::findOrFail($id)->update([
             'nama_kategori' => $request->kategori
         ]);
 
@@ -99,7 +91,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
+        Category::findOrFail($id)->delete();
 
         return redirect()->route('kategori');
     }
