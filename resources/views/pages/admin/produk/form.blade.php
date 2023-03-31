@@ -14,7 +14,7 @@
     @endif
     <div class="container">
         <form action="{{ isset($produk) ? route('produk.edit.update', $produk->id) : route('produk.tambah.simpan') }}"
-            method="POST">
+            method="POST" enctype="multipart/form-data">
             @csrf
             <h1 style="margin: 10px 0">{{ isset($produk) ? 'Edit Produk' : 'Tambah Produk' }}</h1>
             <hr style="margin: 10px 0">
@@ -62,16 +62,25 @@
                     </textarea>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-25"></div>
-                <div class="col-75"><img src="{{ asset('user/images/no-image.jpg') }}" alt="" width="150" height="150"></div>
+                <div class="col-75">
+                    @if (isset($produk) && $produk->image)
+                        <img id="image-preview" src="{{ asset('storage/images/' . $produk->image) }}" width="160px"
+                            height="150px">
+                    @else
+                        <img id="image-preview">
+                    @endif
+                </div>
             </div>
+
             <div class="row">
                 <div class="col-25">
                     <label for="nama">Gambar Produk</label>
                 </div>
                 <div class="col-75">
-                    <input type="file" id="gambar" name="gambar">
+                    <input type="file" id="gambar" name="gambar" onchange="previewImage()">
                 </div>
             </div>
             <div class="row">

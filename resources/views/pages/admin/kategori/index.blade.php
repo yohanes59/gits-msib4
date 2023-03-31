@@ -17,10 +17,9 @@
         </thead>
         <tbody>
             @foreach ($kategori as $item)
-                {{ $item }}
                 <tr>
                     <td data-label="No.">{{ $loop->iteration }}</td>
-                    <td data-label="Nama Kategori">
+                    <td data-label="Gambar">
                         @if ($item->image != '')
                             <img src="{{ asset('storage/images/' . $item->image) }}" alt="gambar kategori {{ $item->nama_kategori }}" width="80"
                                 height="80">

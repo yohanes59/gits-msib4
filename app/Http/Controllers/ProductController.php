@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -39,11 +40,20 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        $newName = '';
+        if ($request->file('gambar')) {
+            $extension = $request->file('gambar')->getClientOriginalExtension();
+            $newName = $request->nama . '-' . now()->timestamp . '.' . $extension;
+            $request->file('gambar')->storeAs('images', $newName);
+        }
+
+        $request['image'] = $newName;
         $data = [
             'nama_produk' => $request->nama,
             'deskripsi' => $request->deskripsi,
             'harga' => $request->harga,
             'kategori_id' => $request->kategori,
+            'image' => $newName,
         ];
 
         Product::create($data);
@@ -86,6 +96,19 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, $id)
     {
+        $product = Product::findOrFail($id);
+
+        if ($request->file('gambar')) {
+            $extension = $request->file('gambar')->getClientOriginalExtension();
+            $newName = $request->nama . '-' . now()->timestamp . '.' . $extension;
+            $request->file('gambar')->storeAs('images', $newName);
+
+            // delete gambar lama dari storage
+            Storage::delete('images/' . $product->image);
+
+            $product->image = $newName;
+        }
+
         $data = [
             'nama_produk' => $request->nama,
             'deskripsi' => $request->deskripsi,
@@ -93,7 +116,7 @@ class ProductController extends Controller
             'kategori_id' => $request->kategori,
         ];
 
-        Product::findOrFail($id)->update($data);
+        $product->update($data);
 
         return redirect()->route('produk');
     }
@@ -106,7 +129,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::findOrFail($id)->delete();
+        $product = Product::findOrFail($id);
+        Storage::delete('images/' . $product->image);
+        $product->delete();
 
         return redirect()->route('produk');
     }

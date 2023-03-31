@@ -18,6 +18,7 @@
 
     <!-- style -->
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
+    <script src="{{ asset('admin/js/imgPreview.js') }}"></script>
 </head>
 
 <body>

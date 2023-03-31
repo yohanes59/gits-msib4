@@ -19,11 +19,18 @@
             </tr>
         </thead>
         <tbody>
-            @php($no = 1)
             @foreach ($produk as $item)
                 <tr>
-                    <td data-label="No.">{{ $no++ }}</td>
-                    <td data-label="Gambar"><img src="{{ asset('user/images/no-image.jpg') }}" alt="" width="80" height="80"></td>
+                    <td data-label="No.">{{ $loop->iteration }}</td>
+                    <td data-label="Gambar">
+                        @if ($item->image != '')
+                            <img src="{{ asset('storage/images/' . $item->image) }}" alt="gambar {{ $item->nama_produk }}"
+                                width="80" height="80">
+                        @else
+                            <img src="{{ asset('user/images/no-image.jpg') }}" alt="gambar {{ $item->nama_produk }}"
+                                width="80" height="80">
+                        @endif
+                    </td>
                     <td data-label="Kategori">
                         {{ $item->category ? $item->category->nama_kategori : 'Uncategorized' }}
                     </td>
