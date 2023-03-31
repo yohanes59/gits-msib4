@@ -4,10 +4,10 @@
     </button>
     <button class="navbar-menu">
         <i class="fa-solid fa-user"></i>
-        <span>Admin</span>
+        <span>{{ Auth::user()->username }}</span>
     </button>
     <button class="navbar-dropdown">
-        <a href="" class="navbar-link">
+        <a href="/logout" class="navbar-link">
             <i class="fa-solid fa-right-from-bracket"></i>
             Logout
         </a>

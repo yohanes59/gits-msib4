@@ -45,7 +45,8 @@
   gap: 22px;
 }
 
-.header .container .icons .cart {
+.header .container .icons .cart,
+.header .container .icons .logout {
   cursor: pointer;
   position: relative;
 }

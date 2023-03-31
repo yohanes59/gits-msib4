@@ -63,6 +63,18 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-25"></div>
+                <div class="col-75"><img src="{{ asset('user/images/no-image.jpg') }}" alt="" width="150" height="150"></div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="nama">Gambar Produk</label>
+                </div>
+                <div class="col-75">
+                    <input type="file" id="gambar" name="gambar">
+                </div>
+            </div>
+            <div class="row">
                 <input type="submit" value="Simpan">
             </div>
         </form>

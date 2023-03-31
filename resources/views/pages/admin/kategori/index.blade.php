@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th>No.</th>
+                <th>Gambar</th>
                 <th>Nama Kategori</th>
                 <th>Aksi</th>
             </tr>
@@ -19,6 +20,7 @@
             @foreach ($kategori as $item)
                 <tr>
                     <td data-label="No.">{{ $no++ }}</td>
+                    <td data-label="Nama Kategori"><img src="{{ asset('user/images/no-image.jpg') }}" alt="" width="80" height="80"></td>
                     <td data-label="Nama Kategori">{{ $item->nama_kategori }}</td>
                     <td data-label="Aksi">
                         <a href="{{ route('kategori.edit', $item->id) }}">

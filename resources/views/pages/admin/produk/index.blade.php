@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th>No.</th>
+                <th>Gambar</th>
                 <th>Kategori</th>
                 <th>Nama Produk</th>
                 <th>Deskripsi</th>
@@ -22,6 +23,7 @@
             @foreach ($produk as $item)
                 <tr>
                     <td data-label="No.">{{ $no++ }}</td>
+                    <td data-label="Gambar"><img src="{{ asset('user/images/no-image.jpg') }}" alt="" width="80" height="80"></td>
                     <td data-label="Kategori">
                         {{ $item->category ? $item->category->nama_kategori : 'Uncategorized' }}
                     </td>

@@ -57,6 +57,10 @@ input[type=submit] {
   clear: both;
 }
 
+#gambar {
+  margin-top: 10px;
+}
+
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
 
@@ -70,17 +74,4 @@ input[type=submit] {
   input[type=submit] {
     margin-top: 20px;
   }
-}
-
-.alert {
-  padding: 15px;
-  padding-left: 30px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-}
-
-.alert-danger {
-  color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
 }
