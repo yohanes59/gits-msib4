@@ -16,11 +16,18 @@
             </tr>
         </thead>
         <tbody>
-            @php($no = 1)
             @foreach ($kategori as $item)
+                {{ $item }}
                 <tr>
-                    <td data-label="No.">{{ $no++ }}</td>
-                    <td data-label="Nama Kategori"><img src="{{ asset('user/images/no-image.jpg') }}" alt="" width="80" height="80"></td>
+                    <td data-label="No.">{{ $loop->iteration }}</td>
+                    <td data-label="Nama Kategori">
+                        @if ($item->image != '')
+                            <img src="{{ asset('storage/images/' . $item->image) }}" alt="gambar kategori {{ $item->nama_kategori }}" width="80"
+                                height="80">
+                        @else
+                            <img src="{{ asset('user/images/no-image.jpg') }}" alt="gambar kategori {{ $item->nama_kategori }}" width="80" height="80">
+                        @endif
+                    </td>
                     <td data-label="Nama Kategori">{{ $item->nama_kategori }}</td>
                     <td data-label="Aksi">
                         <a href="{{ route('kategori.edit', $item->id) }}">

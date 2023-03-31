@@ -13,16 +13,12 @@ class Product extends Model
         'kategori_id',
         'nama_produk',
         'deskripsi',
-        'harga'
+        'harga',
+        'image'
     ];
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'kategori_id');
-    }
-
-    public function cart()
-    {
-        return $this->hasMany(Cart::class, 'product_id');
     }
 }

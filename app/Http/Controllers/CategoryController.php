@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -36,8 +37,17 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
+        $newName = '';
+        if ($request->file('gambar')) {
+            $extension = $request->file('gambar')->getClientOriginalExtension();
+            $newName = $request->kategori . '-' . now()->timestamp . '.' . $extension;
+            $request->file('gambar')->storeAs('images', $newName);
+        }
+
+        $request['image'] = $newName;
         Category::create([
             'nama_kategori' => $request->kategori,
+            'image' => $newName,
         ]);
 
         return redirect()->route('kategori');
@@ -76,9 +86,22 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, $id)
     {
-        Category::findOrFail($id)->update([
-            'nama_kategori' => $request->kategori
-        ]);
+        $category = Category::findOrFail($id);
+
+        // cek apa user mengupload image baru
+        if ($request->file('gambar')) {
+            $extension = $request->file('gambar')->getClientOriginalExtension();
+            $newName = $request->kategori . '-' . now()->timestamp . '.' . $extension;
+            $request->file('gambar')->storeAs('images', $newName);
+
+            // delete gambar lama dari storage
+            Storage::delete('images/' . $category->image);
+
+            $category->image = $newName;
+        }
+
+        $category->nama_kategori = $request->kategori;
+        $category->save();
 
         return redirect()->route('kategori');
     }
@@ -91,7 +114,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
+        $category = Category::findOrFail($id);
+        Storage::delete('images/' . $category->image);
+        $category->delete();
 
         return redirect()->route('kategori');
     }

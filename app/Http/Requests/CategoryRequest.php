@@ -25,6 +25,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'kategori' => ['required', 'string', 'max:10'],
+            'gambar' => ['mimes:png,jpg,jpeg', 'max:2048'],
         ];
     }
 }
