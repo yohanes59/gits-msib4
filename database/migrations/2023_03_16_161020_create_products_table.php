@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('image', 255)->nullable();
             $table->string('nama_produk', 50);
             $table->text('deskripsi');
             $table->unsignedInteger('harga')->default(0);
