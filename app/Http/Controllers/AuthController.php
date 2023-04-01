@@ -17,7 +17,6 @@ class AuthController extends Controller
 
     public function authenticate(Request $request)
     {
-        // dd(Auth::user());
         $credentials = $request->validate([
             'email' => ['required'],
             'password' => ['required'],
@@ -29,7 +28,7 @@ class AuthController extends Controller
             if (Auth::user()->role != 'Admin') {
                 return redirect()->intended('/');
             }
-            return redirect()->intended('/kategori');
+            return redirect()->route('dashboard');
         }
         return redirect()->route('login');
     }

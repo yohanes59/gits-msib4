@@ -5,6 +5,10 @@
     </a>
     <hr class="line">
     <div class="menu">
+        <a href="{{ url('/dashboard') }}" class="menu-item active">
+            <i class="fa-solid fa-house"></i>
+            <p class="sidebar-text">Dashboard</p>
+        </a>
         <a href="{{ url('/kategori') }}" class="menu-item">
             <i class="fa-solid fa-clipboard-check"></i>
             <p class="sidebar-text">Kategori</p>

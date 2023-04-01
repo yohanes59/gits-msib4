@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('admin-only', 'auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::controller(CategoryController::class)->prefix('/kategori')->group(function () {
         // parameter -> route, method, asname
         Route::get('', 'index')->name('kategori');
