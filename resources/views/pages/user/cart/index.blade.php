@@ -20,15 +20,23 @@
                 @foreach ($produk as $item)
                     <div class="box">
                         <div class="image">
-                            <img src="{{ asset('user/images/no-image.jpg') }}" alt="product-image">
+
+                            @if ($item->image != '')
+                                <img src="{{ asset('storage/images/' . $item->image) }}" alt="gambar {{ $item->nama_produk }}">
+                            @else
+                                <img src="{{ asset('user/images/no-image.jpg') }}" alt="gambar {{ $item->nama_produk }}">
+                            @endif
+                            
                             <div class="image-icons">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 <form action="{{ route('cart.tambah.simpan') }}" method="POST">
                                     @csrf
                                     <button type="submit" style="border: none;">
                                         <i class="fa-solid fa-cart-plus add-cart-icon"></i>
-                                        <input type="hidden" name="product_id" value="{{ $item->id }}" class="@error('product_id') @enderror">
-                                        <input type="hidden" name="quantity" value="1" class="@error('quantity') @enderror">
+                                        <input type="hidden" name="product_id" value="{{ $item->id }}"
+                                            class="@error('product_id') @enderror">
+                                        <input type="hidden" name="quantity" value="1"
+                                            class="@error('quantity') @enderror">
                                     </button>
                                 </form>
                             </div>

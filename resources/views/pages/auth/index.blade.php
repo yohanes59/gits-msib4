@@ -82,7 +82,7 @@
 
     </div>
     <script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('signin-up/js/script.js') }}"></script>
+    <script src="{{ asset('auth/js/script.js') }}"></script>
 </body>
 
 </html>

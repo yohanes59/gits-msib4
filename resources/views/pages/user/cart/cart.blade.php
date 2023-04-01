@@ -7,7 +7,14 @@
         <div class="cart-boxes">
             @foreach ($itemAdded as $row)
                 <div class="cart-box">
-                    <img src="{{ asset('user/images/no-image.jpg') }}" alt="">
+                    @if ($row->product != '')
+                        <img src="{{ asset('storage/images/' . $row->product->image) }}" alt="gambar {{ $row->product->nama_produk }}"
+                            width="60" height="60">
+                    @else
+                        <img src="{{ asset('user/images/no-image.jpg') }}" alt="gambar {{ $row->product->nama_produk }}">
+                    @endif
+
+                    {{-- <img src="{{ asset('user/images/no-image.jpg') }}" alt=""> --}}
                     <div class="text">
                         <div class="cart-name">{{ $row->product->nama_produk }}</div>
                         <div class="cart-price">{{ number_format($row->product->harga, 0, ',', '.') }}</div>

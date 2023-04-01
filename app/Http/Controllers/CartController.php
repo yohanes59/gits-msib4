@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -16,7 +17,8 @@ class CartController extends Controller
     public function index()
     {
         $product = Product::with('category')->get();
-        $cartItem = Cart::with('product')->get();
+        $user = Auth::user();
+        $cartItem = Cart::with('product')->where('user_id', $user->id)->get();
         return view('pages.user.cart.index', [
             'produk' => $product,
             'itemAdded' => $cartItem,
@@ -47,7 +49,7 @@ class CartController extends Controller
         ]);
 
         // produk sudah ada dikeranjang?
-        $checkAvailable = Cart::where('product_id', $request->product_id)->first();
+        $checkAvailable = Cart::where('product_id', $request->product_id)->where('user_id', Auth::user()->id)->first();
         // jika sudah update jumlah = jumlah lama + jumlah baru
         if ($checkAvailable) {
             // jika sudah update jumlah = jumlah lama + jumlah baru
@@ -57,6 +59,7 @@ class CartController extends Controller
             $data = [
                 'product_id' => $request->product_id,
                 'quantity' => $request->quantity,
+                'user_id' => Auth::user()->id,
             ];
             Cart::create($data);
         }
