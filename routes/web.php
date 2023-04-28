@@ -22,9 +22,10 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'authenticate']);
     Route::post('/register', [AuthController::class, 'register'])->name('register');
+    Route::redirect('/register', '/login');
 });
 
-Route::middleware('admin-only', 'auth')->group(function () {
+Route::middleware(['admin-only', 'auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::controller(CategoryController::class)->prefix('/kategori')->group(function () {
@@ -51,10 +52,12 @@ Route::middleware('admin-only', 'auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::controller(CartController::class)->prefix('/')->group(function () {
         // parameter -> route, method, asname
-        Route::get('', 'index')->name('home');
-        Route::post('', 'store')->name('cart.tambah.simpan');
-        Route::put('update/{id}', 'update')->name('cart.update');
-        Route::get('hapus/{id}', 'destroy')->name('cart.hapus');
+        Route::middleware('user-only')->group(function () {
+            Route::get('', 'index')->name('home');
+            Route::post('', 'store')->name('cart.tambah.simpan');
+            Route::put('update/{id}', 'update')->name('cart.update');
+            Route::get('hapus/{id}', 'destroy')->name('cart.hapus');
+        });
     });
 
     Route::get('/logout', [AuthController::class, 'logout']);
