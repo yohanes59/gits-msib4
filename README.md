@@ -1,42 +1,95 @@
-# Tugas 5 - CRUD
+# Tugas 6 - CMS
 
 ## :man: Creator
 
 - Nama : [Yohanes Cahyadi](https://github.com/yohanes59)
 - Asal Universitas : [Universitas Indraprasta PGRI](https://unindra.ac.id/)
 
-
-## :open_book: Description
-This repository was created to fulfill the Laravel Cart CRUD assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
-
+## :pushpin: Description
+This repository was created to fulfill the Laravel CMS assignment in the Independent Fullstack Web Developer Study program by GITS.id partner, MSIB Batch 4.
 
 ## :gear: Technology Used:
 
  - Laravel 9
  - CSS
+ - JavaScript
  - FontAwasome
- 
- 
-## 🎯Installation
 
-To run this project, first clone this repo :
-```
-$ composer install
-$ copy the .env example file and rename it to .env
-$ adjust DB_DATABASE name in .env file with database name in your phpmyadmin
-$ in the terminal type the command: php artisan key:generate
-$ then type : php artisan serve
-```
- 
- ## 🎯Demo
+## :open_book: How To Use
+1.  Clone this repository
+    ```
+    git clone https://github.com/yohanes59/gits-msib4.git
+2.  Copy paste **.env.example** file and rename as **.env**
+3.  Adjust the database name in the env file on **DB_DATABASE**
+4.  Generate Key
+    ```
+    php artisan key:generate
+    ```
+5.  Install dependencies
+    ```
+    composer install
+    ```
+6.  Migrate the tables
+    ```
+    php artisan migrate
+    ```
+7.  Generate mirror link
+    ```
+    php artisan storage:link
+    ```
+8.  Setup dummy data for user data
+    ```
+    php artisan db:seed
+    ```
+9.  Start the server
+    ```
+    php artisan serve
+    ```
+10.  Login with this credential
+
+    - If you want to use admin role (can dashboard access):
+
+        Email: 
+        ```
+        admin@gmail.com
+        ```
+        Password: 
+        ```
+        admin123
+        ```
+    - If you want to use user role (can't dashboard access):
+
+        Email: 
+        ```
+        user@gmail.com
+        ```
+        Password: 
+        ```
+        user12345
+        ```
+11. Enjoy use!
 
 
-https://user-images.githubusercontent.com/80000614/228071010-7231bd8d-2074-4924-be06-bfcacb83b95f.mp4
+## :camera: Demo
+* Login Admin
 
-<br>
+
+https://user-images.githubusercontent.com/80000614/229370480-51ca6189-99e4-4649-a061-aac782dcba11.mp4
 
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/80000614/228071032-464fecda-2778-4376-a7d2-a2234806f8c4.gif)
+
+* Login User
+
+
+https://user-images.githubusercontent.com/80000614/229370499-380fc513-b3f0-4b67-b0f2-f0296542a24c.mp4
+
+
+
+* Register User
+
+
+https://user-images.githubusercontent.com/80000614/229370549-b32c0e75-9d60-4f6d-9087-f93262334069.mp4
+
 
 
 
