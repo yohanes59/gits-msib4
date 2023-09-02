@@ -9,7 +9,7 @@
         <div class="row">
             <div class="about-img">
                 <div class="img-box">
-                    <img src="<?=SITE_IMAGES?>/me.png" alt="about-img">
+                    <img src="<?=SITE_IMAGES?>/Yohanes.png" alt="about-img">
                 </div>
             </div>
             <div class="about-text">

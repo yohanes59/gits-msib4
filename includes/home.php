@@ -10,7 +10,7 @@
             </div>
             <div class="home-img">
                 <div class="img-box">
-                <img src="<?=SITE_IMAGES?>/me.png" alt="profile-img">
+                <img src="<?=SITE_IMAGES?>/Yohanes.png" alt="profile-img">
                 </div>
             </div>
         </div>

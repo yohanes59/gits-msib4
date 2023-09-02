@@ -2,7 +2,7 @@
    <div class="container">
       <div class="row">
          <div class="section-title">
-            <h2>Work & Services</h2>
+            <h2>Portfolio</h2>
          </div>
       </div>
       <div class="row">

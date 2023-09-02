@@ -1,6 +1,6 @@
 <?php
 define('NAME', 'Yohanes Cahyadi');
-define('JOB', 'Student Developer');
+define('JOB', 'Web Developer | PHP Developer');
 define('MY_EMAIL', 'yohanescahyadi59@gmail.com');
 define('MY_FB', 'https://facebook.com/yohanescahyadii');
 define('MY_TWITTER', 'https://twitter.com/yohanescahyadii');
@@ -42,19 +42,19 @@ define('SKILLS', $skill = [
         "skill" => "Postgresql",
     ],
     [
-        "skill" => "Express",
+        "skill" => "Express.Js",
     ],
     [
-        "skill" => "Node JS",
-    ],
-    [
-        "skill" => "Git",
+        "skill" => "Node.Js",
     ],
     [
         "skill" => "Github",
     ],
     [
         "skill" => "React",
+    ],
+    [
+        "skill" => "Laravel",
     ],
 ]);
 
@@ -68,13 +68,41 @@ define('EDUCATIONS', $education = [
 
 define('EXPERIENCE', $experience = [
     [
-        "year" => "",
-        "office" => "",
-        "position" => "",
+        "year" => "Februari - Juni 2023",
+        "office" => "Gits Indonesia",
+        "position" => "Full Stack Web Developer Student",
+    ],
+    [
+        "year" => "Februari - Agustus 2022",
+        "office" => "Dicoding Academy",
+        "position" => "Front End & Back End Web Developer Student",
     ],
 ]);
 
 define('PROJECT', $project = [
+    // [
+    //     "image" => "sispar-fc.png",
+    //     "name" => "Sistem Pakar Kerusakan Mesin Jahit Metode Forward Chaining",
+    //     "desc" => "sistem pakar kerusakan mesin jahit menggunakan metode forward chaining",
+    //     "tech" => "HTML, CSS, JS, PHP",
+    //     "link" => "https://fc-sispar.000webhostapp.com/",
+    // ],
+    [
+        "image" => "gift-moment.png",
+        "name" => "Sistem Pemesanan Souvenir Pernikahan (Gift Moment)",
+        "desc" => "Gift Moment is an online shop application for selling souvenirs and wedding gifts. This website makes it easy for sellers and buyers to be able to process sales and purchase transactions for souvenirs and wedding gifts.",
+        "tech" => "HTML, CSS, Bootstrap, Tailwind, JS, Jquery, PHP, Laravel 9",
+        "link" => "https://github.com/yohanes59/gift-moment",
+    ],
+    [
+        "image" => "kasir-cafe.png",
+        "name" => "Aplikasi Kasir Cafe",
+        "desc" => "Application designed to assist cashiers in managing transactions. In application
+        There are authentication features in the form of login and registration, product management,
+        category product management, cart management and transaction list.",
+        "tech" => "HTML, Bootstrap, JS, PHP, Laravel 9",
+        "link" => "kasir-cafe-xyz.000webhostapp.com/",
+    ],
     [
         "image" => "portfolio-web.png",
         "name" => "CV Yohanes Cahyadi",
@@ -128,32 +156,33 @@ define('PROJECT', $project = [
 
 define('CERTIFICATE', $certificate = [
     [
-        "year" => "2021",
-        "from" => "Indraprasta PGRI University x Budi Luhur University",
-        "name" => "Webinar Certificate",
-        "desc" => "certificate as a webinar participant 'Machine Learning vs Data Science:Pengenalan dan Implementasi di Bidang Industri'",
-        "link" => "https://drive.google.com/file/d/1Pds3DwKum1ZDtS_Agrk4gbKx9gCD9Tw6/view?usp=sharing",
+        "year" => "2023",
+        "from" => "Gits.id",
+        "name" => "Certificate Of Excellence Gits Indonesia Studi Independen Bersertifikat Batch 4",
+        "desc" => "certificate to be recognized as one of Best Mentees
+        in the program Studi Independen - Full Stack Web Developer",
+        "link" => "https://drive.google.com/file/d/1evT9CdDUkD36v4bqmCtmGg-bjKXFfNEX/view",
     ],
     [
-        "year" => "2022",
-        "from" => "Codepolitan",
-        "name" => "Certificate Of Completion at class Mengenal Pemrograman Komputer",
-        "desc" => "competency certificate for passing the class Mengenal Pemrograman Komputer",
-        "link" => "https://codepolitan.com/c/HKLIONK",
+        "year" => "2023",
+        "from" => "Gits.id",
+        "name" => "Certificate Of Completion for Full Stack Web Developer Learning Path",
+        "desc" => "independent study program graduation certificate at Gits.id X Kampus Merdeka Batch 4",
+        "link" => "https://drive.google.com/file/d/1QNH8-7iqf0yMW8UUKrfEp--VIIBAiOKD/view",
+    ],
+    [
+        "year" => "2023",
+        "from" => "Dicoding",
+        "name" => "Certificate Of Completion at class Dasar Structured Query Language (SQL)",
+        "desc" => "competency certificate for passing the class Dasar Structured Query Language (SQL)",
+        "link" => "https://www.dicoding.com/certificates/0LZ09EYYRZ65",
     ],
     [
         "year" => "2022",
         "from" => "Dicoding",
-        "name" => "Certificate Of Completion for Front-End Web and Back End",
+        "name" => "Certificate Of Completion for Front-End Web and Back End Learning Path",
         "desc" => "independent study program graduation certificate at Dicoding X Kampus Merdeka Batch 2",
-        "link" => "https://drive.google.com/file/d/1g0Qcw8sWRdbVGBv2DXMumfr_Rii6ag4W/view?usp=sharing",
-    ],
-    [
-        "year" => "2022",
-        "from" => "Dicoding",
-        "name" => "Certificate Of Completion at class Menjadi Back-End Developer Expert",
-        "desc" => "competency certificate for passing the class Menjadi Back-End Developer Expert",
-        "link" => "https://www.dicoding.com/certificates/81P2GM3V8POY",
+        "link" => "https://drive.google.com/file/d/1g0Qcw8sWRdbVGBv2DXMumfr_Rii6ag4W/view",
     ],
     [
         "year" => "2022",
@@ -165,16 +194,16 @@ define('CERTIFICATE', $certificate = [
     [
         "year" => "2022",
         "from" => "Dicoding",
-        "name" => "Certificate Of Completion at class Belajar Membuat Aplikasi Web dengan React",
-        "desc" => "competency certificate for passing the class Belajar Membuat Aplikasi Web dengan React",
-        "link" => "https://www.dicoding.com/certificates/1RXYM2E1QXVM",
+        "name" => "Certificate Of Completion at class Menjadi Back-End Developer Expert",
+        "desc" => "competency certificate for passing the class Menjadi Back-End Developer Expert",
+        "link" => "https://www.dicoding.com/certificates/81P2GM3V8POY",
     ],
     [
         "year" => "2022",
         "from" => "Dicoding",
-        "name" => "Certificate Of Completion at class Memulai Pemrograman Dengan Kotlin",
-        "desc" => "competency certificate for passing the class Memulai Pemrograman Dengan Kotlin",
-        "link" => "https://www.dicoding.com/certificates/72ZDO5N79XYW",
+        "name" => "Certificate Of Completion at class Belajar Membuat Aplikasi Web dengan React",
+        "desc" => "competency certificate for passing the class Belajar Membuat Aplikasi Web dengan React",
+        "link" => "https://www.dicoding.com/certificates/1RXYM2E1QXVM",
     ],
     [
         "year" => "2022",
@@ -186,8 +215,22 @@ define('CERTIFICATE', $certificate = [
     [
         "year" => "2022",
         "from" => "Dicoding",
-        "name" => "Certificate Of Completion at class Memulai Pemrograman Dengan Python",
-        "desc" => "competency certificate for passing the class Memulai Pemrograman Dengan Python",
-        "link" => "https://www.dicoding.com/certificates/QLZ9K7YN7Z5D",
+        "name" => "Certificate Of Completion at class Memulai Pemrograman Dengan Kotlin",
+        "desc" => "competency certificate for passing the class Memulai Pemrograman Dengan Kotlin",
+        "link" => "https://www.dicoding.com/certificates/72ZDO5N79XYW",
+    ],
+    [
+        "year" => "2022",
+        "from" => "Codepolitan",
+        "name" => "Certificate Of Completion at class Mengenal Pemrograman Komputer",
+        "desc" => "competency certificate for passing the class Mengenal Pemrograman Komputer",
+        "link" => "https://codepolitan.com/c/HKLIONK",
+    ],
+    [
+        "year" => "2021",
+        "from" => "Indraprasta PGRI University x Budi Luhur University",
+        "name" => "Webinar Certificate",
+        "desc" => "certificate as a webinar participant 'Machine Learning vs Data Science:Pengenalan dan Implementasi di Bidang Industri'",
+        "link" => "https://drive.google.com/file/d/1Pds3DwKum1ZDtS_Agrk4gbKx9gCD9Tw6/view?usp=sharing",
     ],
 ]);
